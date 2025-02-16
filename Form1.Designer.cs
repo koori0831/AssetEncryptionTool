@@ -43,6 +43,7 @@
             txt_key = new TextBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label5 = new Label();
             Log.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -51,7 +52,7 @@
             // WorkDirField
             // 
             WorkDirField.Font = new Font("Microsoft Sans Serif", 9.75F);
-            WorkDirField.Location = new Point(16, 41);
+            WorkDirField.Location = new Point(58, 193);
             WorkDirField.Margin = new Padding(3, 4, 3, 4);
             WorkDirField.Multiline = true;
             WorkDirField.Name = "WorkDirField";
@@ -62,7 +63,7 @@
             // SaveDirField
             // 
             SaveDirField.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SaveDirField.Location = new Point(16, 136);
+            SaveDirField.Location = new Point(58, 288);
             SaveDirField.Margin = new Padding(3, 4, 3, 4);
             SaveDirField.Multiline = true;
             SaveDirField.Name = "SaveDirField";
@@ -74,7 +75,7 @@
             // 
             BrowseWorkDirBtn.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             BrowseWorkDirBtn.ForeColor = SystemColors.ControlDarkDark;
-            BrowseWorkDirBtn.Location = new Point(415, 41);
+            BrowseWorkDirBtn.Location = new Point(457, 193);
             BrowseWorkDirBtn.Margin = new Padding(3, 4, 3, 4);
             BrowseWorkDirBtn.Name = "BrowseWorkDirBtn";
             BrowseWorkDirBtn.Size = new Size(64, 63);
@@ -87,7 +88,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            label1.Location = new Point(12, 11);
+            label1.Location = new Point(54, 163);
             label1.Name = "label1";
             label1.Size = new Size(144, 24);
             label1.TabIndex = 3;
@@ -97,7 +98,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            label2.Location = new Point(12, 108);
+            label2.Location = new Point(54, 260);
             label2.Name = "label2";
             label2.Size = new Size(159, 24);
             label2.TabIndex = 4;
@@ -107,7 +108,7 @@
             // 
             BrowseSaveDir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
             BrowseSaveDir.ForeColor = SystemColors.ControlDarkDark;
-            BrowseSaveDir.Location = new Point(415, 136);
+            BrowseSaveDir.Location = new Point(457, 288);
             BrowseSaveDir.Margin = new Padding(3, 4, 3, 4);
             BrowseSaveDir.Name = "BrowseSaveDir";
             BrowseSaveDir.Size = new Size(64, 63);
@@ -120,7 +121,7 @@
             // 
             DecryptionBtn.Font = new Font("Microsoft Sans Serif", 10F);
             DecryptionBtn.ForeColor = SystemColors.ControlDarkDark;
-            DecryptionBtn.Location = new Point(687, 280);
+            DecryptionBtn.Location = new Point(818, 430);
             DecryptionBtn.Margin = new Padding(3, 4, 3, 4);
             DecryptionBtn.Name = "DecryptionBtn";
             DecryptionBtn.Size = new Size(92, 34);
@@ -135,7 +136,7 @@
             EncryptionBtn.FlatAppearance.BorderSize = 0;
             EncryptionBtn.Font = new Font("Microsoft Sans Serif", 10F);
             EncryptionBtn.ForeColor = SystemColors.ControlDarkDark;
-            EncryptionBtn.Location = new Point(687, 226);
+            EncryptionBtn.Location = new Point(818, 376);
             EncryptionBtn.Margin = new Padding(3, 4, 3, 4);
             EncryptionBtn.Name = "EncryptionBtn";
             EncryptionBtn.Size = new Size(92, 36);
@@ -170,7 +171,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label3.Location = new Point(474, 226);
+            label3.Location = new Point(605, 376);
             label3.Name = "label3";
             label3.Size = new Size(85, 24);
             label3.TabIndex = 10;
@@ -178,7 +179,7 @@
             // 
             // txt_key
             // 
-            txt_key.Location = new Point(474, 253);
+            txt_key.Location = new Point(605, 403);
             txt_key.Multiline = true;
             txt_key.Name = "txt_key";
             txt_key.Size = new Size(207, 61);
@@ -189,7 +190,7 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.DevLabLogo;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(-225, 84);
+            pictureBox1.Location = new Point(-160, 250);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(906, 360);
             pictureBox1.TabIndex = 11;
@@ -199,18 +200,30 @@
             // 
             pictureBox2.BackgroundImage = Properties.Resources.UnityWhite;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(499, 75);
+            pictureBox2.Location = new Point(630, 258);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(280, 91);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("맑은 고딕", 42F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(234, 45);
+            label5.Name = "label5";
+            label5.Size = new Size(578, 74);
+            label5.TabIndex = 13;
+            label5.Text = "AssetEncryptionTool";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(791, 327);
+            ClientSize = new Size(971, 533);
+            Controls.Add(label5);
             Controls.Add(txt_key);
             Controls.Add(label3);
             Controls.Add(Log);
@@ -256,5 +269,6 @@
         private Label label4;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Label label5;
     }
 }
