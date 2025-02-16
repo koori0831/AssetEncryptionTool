@@ -1,0 +1,16 @@
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\AssetEncryptionTool.exe.config
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\AssetEncryptionTool.exe
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\AssetEncryptionTool.pdb
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Buffers.dll
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Memory.dll
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Buffers.xml
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Memory.xml
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\user\source\repos\AssetEncryptionTool\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\user\source\repos\AssetEncryptionTool\obj\Debug\AssetEncryptionTool.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\AssetEncryptionTool\obj\Debug\AssetEncryptionTool.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\AssetEncryptionTool\obj\Debug\AssetEnc.4EC3CC3B.Up2Date
+C:\Users\user\source\repos\AssetEncryptionTool\obj\Debug\AssetEncryptionTool.exe
+C:\Users\user\source\repos\AssetEncryptionTool\obj\Debug\AssetEncryptionTool.pdb
