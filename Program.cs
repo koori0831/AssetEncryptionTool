@@ -18,6 +18,13 @@ namespace AssetEncryptionTool
         UnityCNEncryption = 0x400,
         newTestUnityCNEncryption = 0x800000
     }
+    [Flags]
+    public enum CnEncryptionFlags
+    {
+        OldFlag = 0x200,
+        NewFlag = 0x400
+    }
+
     public static class Extensions
     {
 
@@ -112,7 +119,7 @@ namespace AssetEncryptionTool
                             reader.Position = readerPostion;
                             Console.WriteLine("Header Position: " + readerPostion);
                             // ReadUnityCN(reader);
-                            
+
 
 
                             ChangeFlang(headerData, ArchiveFlags.newTestUnityCNEncryption);
@@ -203,32 +210,22 @@ namespace AssetEncryptionTool
         /// </summary>
         /// <param name="headerData"></param>
         /// <param name="v"></param>
-        private static void ChangeFlang(byte[] headerData, ArchiveFlags ignoreFlag)
+        private static void ChangeFlang(byte[] headerData)
         {
             int flagIndex = headerData.Length - 4;
-            ArchiveFlags prevFlag = (ArchiveFlags)BitConverter.ToUInt32(headerData, flagIndex);
-            ArchiveFlags newFlag = prevFlag ^ ignoreFlag;
+            uint prevFlag = BitConverter.ToUInt32(headerData, flagIndex);
+            uint newFlag = prevFlag & ~((uint)ArchiveFlags.BlockInfoNeedPaddingAtStart |
+                                           (uint)ArchiveFlags.UnityCNEncryption |
+                                           (uint)ArchiveFlags.newTestUnityCNEncryption);
+
             Byte[] newFlagByte = BitConverter.GetBytes((UInt32)newFlag);
             for (int i = 0; i < 4; i++)
             {
                 headerData[flagIndex + i] = newFlagByte[i];
             }
             Console.WriteLine("new flag: " + newFlag);
+            Console.WriteLine("prev flag: " + prevFlag);
 
-            foreach(var value in newFlagByte)
-            {
-                Console.WriteLine("new flag byte: " + value);
-            }
-
-            if ((newFlag & ignoreFlag) != 0)
-            {
-                Console.WriteLine("flag changed");
-            }
-            else
-            {
-                Console.WriteLine("flag not changed");
-            }
-        
         }
 
 
