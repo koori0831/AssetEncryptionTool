@@ -188,7 +188,7 @@ namespace AssetEncryptionTool
             m_Header.compressedBlocksInfoSize = reader.ReadUInt32();
             m_Header.uncompressedBlocksInfoSize = reader.ReadUInt32();
             // m_Header.flags = (ArchiveFlags)reader.ReadUInt32();
-            reader.ReadUInt32();
+            Console.WriteLine("flag : " + reader.ReadUInt32());
             if (m_Header.signature != "UnityFS")
             {
                 reader.ReadByte();
