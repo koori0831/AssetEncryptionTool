@@ -28,123 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.WorkDirField = new System.Windows.Forms.TextBox();
-            this.SaveDirField = new System.Windows.Forms.TextBox();
-            this.BrowseWorkDirBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BrowseSaveDir = new System.Windows.Forms.Button();
-            this.DecryptionBtn = new System.Windows.Forms.Button();
-            this.EncryptionBtn = new System.Windows.Forms.Button();
-            this.Log = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            WorkDirField = new TextBox();
+            SaveDirField = new TextBox();
+            BrowseWorkDirBtn = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            BrowseSaveDir = new Button();
+            DecryptionBtn = new Button();
+            EncryptionBtn = new Button();
+            Log = new Panel();
+            SuspendLayout();
             // 
             // WorkDirField
             // 
-            this.WorkDirField.Font = new System.Drawing.Font("Yoon 윤고딕 330", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.WorkDirField.Location = new System.Drawing.Point(16, 33);
-            this.WorkDirField.Name = "WorkDirField";
-            this.WorkDirField.Size = new System.Drawing.Size(620, 28);
-            this.WorkDirField.TabIndex = 0;
-            this.WorkDirField.WordWrap = false;
+            WorkDirField.Font = new Font("Yoon 윤고딕 330", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            WorkDirField.Location = new Point(16, 41);
+            WorkDirField.Margin = new Padding(3, 4, 3, 4);
+            WorkDirField.Name = "WorkDirField";
+            WorkDirField.Size = new Size(620, 28);
+            WorkDirField.TabIndex = 0;
+            WorkDirField.WordWrap = false;
             // 
             // SaveDirField
             // 
-            this.SaveDirField.Font = new System.Drawing.Font("Yoon 윤고딕 330", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.SaveDirField.Location = new System.Drawing.Point(16, 88);
-            this.SaveDirField.Name = "SaveDirField";
-            this.SaveDirField.Size = new System.Drawing.Size(620, 28);
-            this.SaveDirField.TabIndex = 1;
-            this.SaveDirField.WordWrap = false;
+            SaveDirField.Font = new Font("Yoon 윤고딕 330", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            SaveDirField.Location = new Point(16, 110);
+            SaveDirField.Margin = new Padding(3, 4, 3, 4);
+            SaveDirField.Name = "SaveDirField";
+            SaveDirField.Size = new Size(620, 28);
+            SaveDirField.TabIndex = 1;
+            SaveDirField.WordWrap = false;
             // 
             // BrowseWorkDirBtn
             // 
-            this.BrowseWorkDirBtn.Font = new System.Drawing.Font("Yoon 윤고딕 330", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.BrowseWorkDirBtn.Location = new System.Drawing.Point(642, 31);
-            this.BrowseWorkDirBtn.Name = "BrowseWorkDirBtn";
-            this.BrowseWorkDirBtn.Size = new System.Drawing.Size(100, 32);
-            this.BrowseWorkDirBtn.TabIndex = 2;
-            this.BrowseWorkDirBtn.Text = "찾아보기";
-            this.BrowseWorkDirBtn.UseVisualStyleBackColor = true;
+            BrowseWorkDirBtn.Font = new Font("Yoon 윤고딕 330", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            BrowseWorkDirBtn.Location = new Point(642, 39);
+            BrowseWorkDirBtn.Margin = new Padding(3, 4, 3, 4);
+            BrowseWorkDirBtn.Name = "BrowseWorkDirBtn";
+            BrowseWorkDirBtn.Size = new Size(100, 40);
+            BrowseWorkDirBtn.TabIndex = 2;
+            BrowseWorkDirBtn.Text = "찾아보기";
+            BrowseWorkDirBtn.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yoon 윤고딕 330", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "작업할 에셋 폴더";
+            label1.AutoSize = true;
+            label1.Font = new Font("Yoon 윤고딕 330", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            label1.Location = new Point(12, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(143, 21);
+            label1.TabIndex = 3;
+            label1.Text = "작업할 에셋 폴더";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Yoon 윤고딕 330", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(12, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 21);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "저장할 에셋 폴더";
+            label2.AutoSize = true;
+            label2.Font = new Font("Yoon 윤고딕 330", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            label2.Location = new Point(12, 80);
+            label2.Name = "label2";
+            label2.Size = new Size(143, 21);
+            label2.TabIndex = 4;
+            label2.Text = "저장할 에셋 폴더";
             // 
             // BrowseSaveDir
             // 
-            this.BrowseSaveDir.Font = new System.Drawing.Font("Yoon 윤고딕 330", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.BrowseSaveDir.Location = new System.Drawing.Point(642, 86);
-            this.BrowseSaveDir.Name = "BrowseSaveDir";
-            this.BrowseSaveDir.Size = new System.Drawing.Size(100, 32);
-            this.BrowseSaveDir.TabIndex = 5;
-            this.BrowseSaveDir.Text = "찾아보기";
-            this.BrowseSaveDir.UseVisualStyleBackColor = true;
+            BrowseSaveDir.Font = new Font("Yoon 윤고딕 330", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            BrowseSaveDir.Location = new Point(642, 108);
+            BrowseSaveDir.Margin = new Padding(3, 4, 3, 4);
+            BrowseSaveDir.Name = "BrowseSaveDir";
+            BrowseSaveDir.Size = new Size(100, 40);
+            BrowseSaveDir.TabIndex = 5;
+            BrowseSaveDir.Text = "찾아보기";
+            BrowseSaveDir.UseVisualStyleBackColor = true;
             // 
             // DecryptionBtn
             // 
-            this.DecryptionBtn.Font = new System.Drawing.Font("Yoon 윤고딕 330", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.DecryptionBtn.Location = new System.Drawing.Point(16, 122);
-            this.DecryptionBtn.Name = "DecryptionBtn";
-            this.DecryptionBtn.Size = new System.Drawing.Size(187, 70);
-            this.DecryptionBtn.TabIndex = 6;
-            this.DecryptionBtn.Text = "복호화";
-            this.DecryptionBtn.UseVisualStyleBackColor = true;
+            DecryptionBtn.Font = new Font("Yoon 윤고딕 330", 18F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            DecryptionBtn.Location = new Point(16, 152);
+            DecryptionBtn.Margin = new Padding(3, 4, 3, 4);
+            DecryptionBtn.Name = "DecryptionBtn";
+            DecryptionBtn.Size = new Size(187, 88);
+            DecryptionBtn.TabIndex = 6;
+            DecryptionBtn.Text = "복호화";
+            DecryptionBtn.UseVisualStyleBackColor = true;
             // 
             // EncryptionBtn
             // 
-            this.EncryptionBtn.Font = new System.Drawing.Font("Yoon 윤고딕 330", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.EncryptionBtn.Location = new System.Drawing.Point(209, 122);
-            this.EncryptionBtn.Name = "EncryptionBtn";
-            this.EncryptionBtn.Size = new System.Drawing.Size(187, 70);
-            this.EncryptionBtn.TabIndex = 7;
-            this.EncryptionBtn.Text = "암호화";
-            this.EncryptionBtn.UseVisualStyleBackColor = true;
+            EncryptionBtn.Font = new Font("Yoon 윤고딕 330", 18F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            EncryptionBtn.Location = new Point(209, 152);
+            EncryptionBtn.Margin = new Padding(3, 4, 3, 4);
+            EncryptionBtn.Name = "EncryptionBtn";
+            EncryptionBtn.Size = new Size(187, 88);
+            EncryptionBtn.TabIndex = 7;
+            EncryptionBtn.Text = "암호화";
+            EncryptionBtn.UseVisualStyleBackColor = true;
             // 
             // Log
             // 
-            this.Log.AccessibleDescription = "";
-            this.Log.AccessibleName = "";
-            this.Log.Font = new System.Drawing.Font("Yoon 윤고딕 330", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Log.Location = new System.Drawing.Point(402, 122);
-            this.Log.Name = "Log";
-            this.Log.Size = new System.Drawing.Size(340, 70);
-            this.Log.TabIndex = 8;
+            Log.AccessibleDescription = "";
+            Log.AccessibleName = "";
+            Log.Font = new Font("Yoon 윤고딕 330", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Log.Location = new Point(402, 152);
+            Log.Margin = new Padding(3, 4, 3, 4);
+            Log.Name = "Log";
+            Log.Size = new Size(340, 88);
+            Log.TabIndex = 8;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 204);
-            this.Controls.Add(this.Log);
-            this.Controls.Add(this.EncryptionBtn);
-            this.Controls.Add(this.DecryptionBtn);
-            this.Controls.Add(this.BrowseSaveDir);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.BrowseWorkDirBtn);
-            this.Controls.Add(this.SaveDirField);
-            this.Controls.Add(this.WorkDirField);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(756, 255);
+            Controls.Add(Log);
+            Controls.Add(EncryptionBtn);
+            Controls.Add(DecryptionBtn);
+            Controls.Add(BrowseSaveDir);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(BrowseWorkDirBtn);
+            Controls.Add(SaveDirField);
+            Controls.Add(WorkDirField);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "Form1";
+            Text = "AssetEncryptionTool";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -161,4 +170,3 @@
         private System.Windows.Forms.Panel Log;
     }
 }
-

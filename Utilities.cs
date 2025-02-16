@@ -1,10 +1,8 @@
-﻿using System.Windows.Forms;
-
-namespace AssetEncryptionTool2
+﻿namespace AssetEncryptionTool
 {
     public static class Utilities
     {
-        public static string GetFilePathFromDialog(string title, string filter)
+        public static string? GetFilePathFromDialog(string title, string filter)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -20,7 +18,7 @@ namespace AssetEncryptionTool2
             }
         }
 
-        public static string GetSaveFilePathFromDialog(string title, string filter)
+        public static string? GetSaveFilePathFromDialog(string title, string filter)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
@@ -36,7 +34,7 @@ namespace AssetEncryptionTool2
             }
         }
 
-        public static string GetFolderPathFromDialog(string title = "폴더 선택")
+        public static string? GetFolderPathFromDialog(string title = "폴더 선택")
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
