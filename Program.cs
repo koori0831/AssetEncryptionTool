@@ -15,7 +15,8 @@ namespace AssetEncryptionTool
         OldWebPluginCompatibility = 0x100,
         BlockInfoNeedPaddingAtStart = 0x200,
         OldUnityCNEncryption = 0x200,
-        UnityCNEncryption = 0x400
+        UnityCNEncryption = 0x400,
+        newTestUnityCNEncryption = 0x800000
     }
     public static class Extensions
     {
@@ -114,7 +115,7 @@ namespace AssetEncryptionTool
                             
 
 
-                            ChangeFlang(headerData, ArchiveFlags.OldUnityCNEncryption);
+                            ChangeFlang(headerData, ArchiveFlags.newTestUnityCNEncryption);
 
                             {
 
@@ -213,6 +214,12 @@ namespace AssetEncryptionTool
                 headerData[flagIndex + i] = newFlagByte[i];
             }
             Console.WriteLine("new flag: " + newFlag);
+
+            foreach(var value in newFlagByte)
+            {
+                Console.WriteLine("new flag byte: " + value);
+            }
+
             if ((newFlag & ignoreFlag) != 0)
             {
                 Console.WriteLine("flag changed");
