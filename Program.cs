@@ -99,6 +99,9 @@ namespace AssetEncryptionTool
                             reader.Position = readerPostion;
                             Console.WriteLine("Header Position: " + readerPostion);
                             // ReadUnityCN(reader);
+                            
+
+                            ChangeFlang(headerData, 1124073472);
 
                             {
 
@@ -181,6 +184,21 @@ namespace AssetEncryptionTool
                 Console.WriteLine("Invalid mode specified. Use 'decrypt' or 'encrypt'.");
             }
         }
+/// <summary>
+/// change flag UnityCN to UnityFS
+/// </summary>
+/// <param name="headerData"></param>
+/// <param name="v"></param>
+        private static void ChangeFlang(byte[] headerData, uint v)
+        {
+            int flagIndex = headerData.Length - 4;
+            Byte[] newFlag = BitConverter.GetBytes(v);
+            for (int i = 0; i < 4; i++)
+            {
+                headerData[flagIndex + i] = newFlag[i];
+            }
+        }
+
 
         private static void ReadHeader(EndianBinaryReader reader, Header m_Header)
         {
