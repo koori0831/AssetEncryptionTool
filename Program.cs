@@ -6,6 +6,16 @@ using System.Text;
 
 namespace AssetEncryptionTool
 {
+    [Flags]
+    public enum ArchiveFlags
+    {
+        CompressionTypeMask = 0x3f,
+        BlocksAndDirectoryInfoCombined = 0x40,
+        BlocksInfoAtTheEnd = 0x80,
+        OldWebPluginCompatibility = 0x100,
+        BlockInfoNeedPaddingAtStart = 0x200,
+        UnityCNEncryption = 0x400
+    }
     public static class Extensions
     {
 
@@ -37,6 +47,7 @@ namespace AssetEncryptionTool
             public long size;
             public uint compressedBlocksInfoSize;
             public uint uncompressedBlocksInfoSize;
+            public ArchiveFlags flags;
         }
         static void Main(string[] args)
         {
@@ -99,6 +110,9 @@ namespace AssetEncryptionTool
                             reader.Position = readerPostion;
                             Console.WriteLine("Header Position: " + readerPostion);
                             // ReadUnityCN(reader);
+
+
+                            ChangeFlang(headerData, ArchiveFlags.UnityCNEncryption);
 
                             {
 
@@ -181,14 +195,30 @@ namespace AssetEncryptionTool
                 Console.WriteLine("Invalid mode specified. Use 'decrypt' or 'encrypt'.");
             }
         }
+        /// <summary>
+        /// change flag UnityCN to UnityFS
+        /// </summary>
+        /// <param name="headerData"></param>
+        /// <param name="v"></param>
+        private static void ChangeFlang(byte[] headerData, ArchiveFlags ignoreFlag)
+        {
+            int flagIndex = headerData.Length - 4;
+            ArchiveFlags prevFlag = (ArchiveFlags)BitConverter.ToUInt32(headerData, flagIndex);
+            ArchiveFlags newFlag = prevFlag ^ ignoreFlag;
+            Byte[] newFlagByte = BitConverter.GetBytes((UInt32)newFlag);
+            for (int i = 0; i < 4; i++)
+            {
+                headerData[flagIndex + i] = newFlagByte[i];
+            }
+        }
+
 
         private static void ReadHeader(EndianBinaryReader reader, Header m_Header)
         {
             m_Header.size = reader.ReadInt64();
             m_Header.compressedBlocksInfoSize = reader.ReadUInt32();
             m_Header.uncompressedBlocksInfoSize = reader.ReadUInt32();
-            // m_Header.flags = (ArchiveFlags)reader.ReadUInt32();
-            Console.WriteLine("flag : " + reader.ReadUInt32());
+            m_Header.flags = (ArchiveFlags)reader.ReadUInt32();
             if (m_Header.signature != "UnityFS")
             {
                 reader.ReadByte();
