@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace AssetEncryptionTool
@@ -92,7 +93,12 @@ namespace AssetEncryptionTool
                             break;
                         case "UnityFS":
                             ReadHeader(reader, m_Header);
+                            long readerPostion = reader.Position;
+                            reader.Position = 0;
+                            byte[] headerData = reader.ReadBytes((int)readerPostion);
+                            reader.Position = readerPostion;
                             // ReadUnityCN(reader);
+
                             {
 
                                 UnityCN unityCn = null;
@@ -117,7 +123,7 @@ namespace AssetEncryptionTool
                                 unityCn.DecryptBlock(dataSpan, remainingData.Length, 0);
 
                                 // 여기서는 복호화된 본문만 출력 (필요에 따라 헤더와 결합 가능)
-                                File.WriteAllBytes(outputFile, dataSpan.ToArray());
+                                File.WriteAllBytes(outputFile, headerData.Concat(dataSpan.ToArray()).ToArray());
                                 Console.WriteLine("Asset file decrypted successfully.");
                             }
                             // ReadBlocksInfoAndDirectory(reader);
