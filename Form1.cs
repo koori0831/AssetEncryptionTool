@@ -14,6 +14,8 @@ namespace AssetEncryptionTool
         {
             string? path = Utilities.GetFolderPathFromDialog();
             WorkDirField.Text = path;
+            if (string.IsNullOrEmpty(SaveDirField.Text))
+                SaveDirField.Text = $"{path}\\AssetEncryptionTool";
         }
         private void BrowseSaveDir_Click(object sender, EventArgs e)
         {
@@ -36,6 +38,17 @@ namespace AssetEncryptionTool
         }
         void test(string inputPath, string outputPath, string key, EncryptDelegate @delegate)
         {
+            if (string.IsNullOrEmpty(inputPath))
+            {
+                MessageBox.Show("InputPath is empty!");
+                return;
+            }
+            if (string.IsNullOrEmpty(outputPath))
+            {
+                MessageBox.Show("OutputPath is empty!");
+                return;
+            }
+
             string[] childFiles = GetChildPath(inputPath);
             foreach(string childPath in childFiles)
             {

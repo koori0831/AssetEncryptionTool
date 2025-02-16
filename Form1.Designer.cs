@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             WorkDirField = new TextBox();
             SaveDirField = new TextBox();
             BrowseWorkDirBtn = new Button();
@@ -38,41 +38,47 @@
             DecryptionBtn = new Button();
             EncryptionBtn = new Button();
             Log = new Panel();
+            label4 = new Label();
+            label3 = new Label();
             txt_key = new TextBox();
-            bindingSource1 = new BindingSource(components);
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             Log.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // WorkDirField
             // 
-            WorkDirField.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            WorkDirField.Font = new Font("Microsoft Sans Serif", 9.75F);
             WorkDirField.Location = new Point(16, 41);
             WorkDirField.Margin = new Padding(3, 4, 3, 4);
+            WorkDirField.Multiline = true;
             WorkDirField.Name = "WorkDirField";
-            WorkDirField.Size = new Size(620, 29);
+            WorkDirField.Size = new Size(393, 63);
             WorkDirField.TabIndex = 0;
             WorkDirField.WordWrap = false;
             // 
             // SaveDirField
             // 
-            SaveDirField.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            SaveDirField.Location = new Point(16, 110);
+            SaveDirField.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveDirField.Location = new Point(16, 136);
             SaveDirField.Margin = new Padding(3, 4, 3, 4);
+            SaveDirField.Multiline = true;
             SaveDirField.Name = "SaveDirField";
-            SaveDirField.Size = new Size(620, 29);
+            SaveDirField.Size = new Size(393, 63);
             SaveDirField.TabIndex = 1;
             SaveDirField.WordWrap = false;
             // 
             // BrowseWorkDirBtn
             // 
             BrowseWorkDirBtn.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            BrowseWorkDirBtn.Location = new Point(642, 39);
+            BrowseWorkDirBtn.Location = new Point(415, 41);
             BrowseWorkDirBtn.Margin = new Padding(3, 4, 3, 4);
             BrowseWorkDirBtn.Name = "BrowseWorkDirBtn";
-            BrowseWorkDirBtn.Size = new Size(100, 40);
+            BrowseWorkDirBtn.Size = new Size(64, 63);
             BrowseWorkDirBtn.TabIndex = 2;
-            BrowseWorkDirBtn.Text = "찾아보기";
+            BrowseWorkDirBtn.Text = "Find Path";
             BrowseWorkDirBtn.UseVisualStyleBackColor = true;
             BrowseWorkDirBtn.Click += BrowseWorkDirBtn_Click;
             // 
@@ -82,53 +88,56 @@
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
             label1.Location = new Point(12, 11);
             label1.Name = "label1";
-            label1.Size = new Size(125, 24);
+            label1.Size = new Size(144, 24);
             label1.TabIndex = 3;
-            label1.Text = "작업할 에셋 폴더";
+            label1.Text = "Input folder path";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            label2.Location = new Point(12, 80);
+            label2.Location = new Point(12, 108);
             label2.Name = "label2";
-            label2.Size = new Size(125, 24);
+            label2.Size = new Size(159, 24);
             label2.TabIndex = 4;
-            label2.Text = "저장할 에셋 폴더";
+            label2.Text = "Output folder path";
             // 
             // BrowseSaveDir
             // 
             BrowseSaveDir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            BrowseSaveDir.Location = new Point(642, 108);
+            BrowseSaveDir.Location = new Point(415, 136);
             BrowseSaveDir.Margin = new Padding(3, 4, 3, 4);
             BrowseSaveDir.Name = "BrowseSaveDir";
-            BrowseSaveDir.Size = new Size(100, 40);
+            BrowseSaveDir.Size = new Size(64, 63);
             BrowseSaveDir.TabIndex = 5;
-            BrowseSaveDir.Text = "찾아보기";
+            BrowseSaveDir.Text = "Find Path";
             BrowseSaveDir.UseVisualStyleBackColor = true;
             BrowseSaveDir.Click += BrowseSaveDir_Click;
             // 
             // DecryptionBtn
             // 
-            DecryptionBtn.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            DecryptionBtn.Location = new Point(16, 152);
+            DecryptionBtn.Font = new Font("Microsoft Sans Serif", 10F);
+            DecryptionBtn.Location = new Point(687, 280);
             DecryptionBtn.Margin = new Padding(3, 4, 3, 4);
             DecryptionBtn.Name = "DecryptionBtn";
-            DecryptionBtn.Size = new Size(187, 88);
+            DecryptionBtn.Size = new Size(92, 34);
             DecryptionBtn.TabIndex = 6;
-            DecryptionBtn.Text = "복호화";
+            DecryptionBtn.Text = "decryption";
             DecryptionBtn.UseVisualStyleBackColor = true;
             DecryptionBtn.Click += DecryptionBtn_Click;
             // 
             // EncryptionBtn
             // 
-            EncryptionBtn.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            EncryptionBtn.Location = new Point(209, 152);
+            EncryptionBtn.FlatAppearance.BorderColor = Color.White;
+            EncryptionBtn.FlatAppearance.BorderSize = 0;
+            EncryptionBtn.Font = new Font("Microsoft Sans Serif", 10F);
+            EncryptionBtn.ForeColor = SystemColors.ControlDarkDark;
+            EncryptionBtn.Location = new Point(687, 226);
             EncryptionBtn.Margin = new Padding(3, 4, 3, 4);
             EncryptionBtn.Name = "EncryptionBtn";
-            EncryptionBtn.Size = new Size(187, 88);
+            EncryptionBtn.Size = new Size(92, 36);
             EncryptionBtn.TabIndex = 7;
-            EncryptionBtn.Text = "암호화";
+            EncryptionBtn.Text = "encryption";
             EncryptionBtn.UseVisualStyleBackColor = true;
             EncryptionBtn.Click += EncryptionBtn_Click;
             // 
@@ -136,26 +145,71 @@
             // 
             Log.AccessibleDescription = "";
             Log.AccessibleName = "";
-            Log.Controls.Add(txt_key);
+            Log.Controls.Add(label4);
             Log.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            Log.Location = new Point(402, 152);
+            Log.Location = new Point(1150, 41);
             Log.Margin = new Padding(3, 4, 3, 4);
             Log.Name = "Log";
-            Log.Size = new Size(340, 88);
+            Log.Size = new Size(270, 273);
             Log.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 15F);
+            label4.Location = new Point(4, 4);
+            label4.Name = "label4";
+            label4.Size = new Size(45, 25);
+            label4.TabIndex = 0;
+            label4.Text = "Log";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 14.25F);
+            label3.Location = new Point(474, 226);
+            label3.Name = "label3";
+            label3.Size = new Size(85, 24);
+            label3.TabIndex = 10;
+            label3.Text = "AES Key";
             // 
             // txt_key
             // 
-            txt_key.Location = new Point(5, 64);
+            txt_key.Location = new Point(474, 253);
+            txt_key.Multiline = true;
             txt_key.Name = "txt_key";
-            txt_key.Size = new Size(332, 21);
+            txt_key.Size = new Size(207, 61);
             txt_key.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.DevLabLogo;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(-225, 84);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(906, 360);
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources.UnityWhite;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(499, 75);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(280, 91);
+            pictureBox2.TabIndex = 12;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(756, 255);
+            BackColor = Color.Black;
+            ClientSize = new Size(791, 327);
+            Controls.Add(txt_key);
+            Controls.Add(label3);
             Controls.Add(Log);
             Controls.Add(EncryptionBtn);
             Controls.Add(DecryptionBtn);
@@ -165,13 +219,19 @@
             Controls.Add(BrowseWorkDirBtn);
             Controls.Add(SaveDirField);
             Controls.Add(WorkDirField);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            ForeColor = SystemColors.AppWorkspace;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "Form1";
             Text = "AssetEncryptionTool";
             Log.ResumeLayout(false);
             Log.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -189,6 +249,9 @@
         private System.Windows.Forms.Button EncryptionBtn;
         private System.Windows.Forms.Panel Log;
         private TextBox txt_key;
-        private BindingSource bindingSource1;
+        private Label label3;
+        private Label label4;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
