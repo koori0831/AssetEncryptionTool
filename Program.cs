@@ -210,6 +210,16 @@ namespace AssetEncryptionTool
             {
                 headerData[flagIndex + i] = newFlagByte[i];
             }
+            Console.WriteLine("new flag: " + newFlag);
+            if ((newFlag & ignoreFlag) != 0)
+            {
+                Console.WriteLine("flag changed");
+            }
+            else
+            {
+                Console.WriteLine("flag not changed");
+            }
+        
         }
 
 
