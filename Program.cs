@@ -97,6 +97,7 @@ namespace AssetEncryptionTool
                             reader.Position = 0;
                             byte[] headerData = reader.ReadBytes((int)readerPostion);
                             reader.Position = readerPostion;
+                            Console.WriteLine("Header Position: " + readerPostion);
                             // ReadUnityCN(reader);
 
                             {
