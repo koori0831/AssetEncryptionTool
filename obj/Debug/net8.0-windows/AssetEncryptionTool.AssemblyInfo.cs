@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AssetEncryptionTool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74d033cbfb80106082711572c957a0204a883270")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acc50aa0dc7fd72c3cc04e6b464820957b7ca2ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("AssetEncryptionTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AssetEncryptionTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
