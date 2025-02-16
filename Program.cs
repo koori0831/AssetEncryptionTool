@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +14,7 @@ namespace AssetEncryptionTool
         BlocksInfoAtTheEnd = 0x80,
         OldWebPluginCompatibility = 0x100,
         BlockInfoNeedPaddingAtStart = 0x200,
+        OldUnityCNEncryption = 0x200,
         UnityCNEncryption = 0x400
     }
     public static class Extensions
@@ -113,7 +114,7 @@ namespace AssetEncryptionTool
                             
 
 
-                            ChangeFlang(headerData, ArchiveFlags.UnityCNEncryption);
+                            ChangeFlang(headerData, ArchiveFlags.OldUnityCNEncryption);
 
                             {
 
