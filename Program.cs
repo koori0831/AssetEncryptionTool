@@ -1,10 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace AssetEncryptionTool
 {
+    public static class Extensions
+    {
+
+        public static string ReadStringToNull(this BinaryReader reader, int maxLength = 32767)
+        {
+            var bytes = new List<byte>();
+            int count = 0;
+            while (reader.BaseStream.Position != reader.BaseStream.Length && count < maxLength)
+            {
+                var b = reader.ReadByte();
+                if (b == 0)
+                {
+                    break;
+                }
+                bytes.Add(b);
+                count++;
+            }
+            return Encoding.UTF8.GetString(bytes.ToArray());
+        }
+    }
     class Program
     {
+        public class Header
+        {
+            public string signature;
+            public uint version;
+            public string unityVersion;
+            public string unityRevision;
+            public long size;
+            public uint compressedBlocksInfoSize;
+            public uint uncompressedBlocksInfoSize;
+        }
         static void Main(string[] args)
         {
             if (args.Length < 4)
@@ -34,30 +66,68 @@ namespace AssetEncryptionTool
                 using (var ms = new MemoryStream(fileData))
                 {
                     var reader = new EndianBinaryReader(ms);
-                    UnityCN unityCn = null;
-                    try
+
+                    Header m_Header = new Header();
+                    m_Header.signature = reader.ReadStringToNull();
+                    m_Header.version = reader.ReadUInt32();
+                    m_Header.unityVersion = reader.ReadStringToNull();
+                    m_Header.unityRevision = reader.ReadStringToNull();
+                    switch (m_Header.signature)
                     {
-                        // 헤더를 읽어 복호화를 위한 UnityCN 인스턴스를 생성
-                        unityCn = new UnityCN(reader);
+                        case "UnityArchive":
+                            break; //TODO
+                        case "UnityWeb":
+                        case "UnityRaw":
+                            throw new Exception("Unsupported format: " + m_Header.signature);
+                            // if (m_Header.version == 6)
+                            // {
+                            //     goto case "UnityFS";
+                            // }
+                            // ReadHeaderAndBlocksInfo(reader);
+                            // using (var blocksStream = CreateBlocksStream(reader.FullPath))
+                            // {
+                            //     ReadBlocksAndDirectory(reader, blocksStream);
+                            //     ReadFiles(blocksStream, reader.FullPath);
+                            // }
+                            break;
+                        case "UnityFS":
+                            ReadHeader(reader, m_Header);
+                            // ReadUnityCN(reader);
+                            {
+
+                                UnityCN unityCn = null;
+                                try
+                                {
+                                    // 헤더를 읽어 복호화를 위한 UnityCN 인스턴스를 생성
+                                    unityCn = new UnityCN(reader);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine("Decryption failed: " + ex.Message);
+                                    return;
+                                }
+
+                                // 헤더 이후 나머지 데이터 읽기
+                                long remainingLength = ms.Length - ms.Position;
+                                byte[] remainingData = new byte[remainingLength];
+                                reader.Read(remainingData, 0, (int)remainingLength);
+
+                                // 블록 단위 복호화 수행
+                                Span<byte> dataSpan = remainingData.AsSpan();
+                                unityCn.DecryptBlock(dataSpan, remainingData.Length, 0);
+
+                                // 여기서는 복호화된 본문만 출력 (필요에 따라 헤더와 결합 가능)
+                                File.WriteAllBytes(outputFile, dataSpan.ToArray());
+                                Console.WriteLine("Asset file decrypted successfully.");
+                            }
+                            // ReadBlocksInfoAndDirectory(reader);
+                            // using (var blocksStream = CreateBlocksStream(reader.FullPath))
+                            // {
+                            //     ReadBlocks(reader, blocksStream);
+                            //     ReadFiles(blocksStream, reader.FullPath);
+                            // }
+                            break;
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Decryption failed: " + ex.Message);
-                        return;
-                    }
-
-                    // 헤더 이후 나머지 데이터 읽기
-                    long remainingLength = ms.Length - ms.Position;
-                    byte[] remainingData = new byte[remainingLength];
-                    reader.Read(remainingData, 0, (int)remainingLength);
-
-                    // 블록 단위 복호화 수행
-                    Span<byte> dataSpan = remainingData.AsSpan();
-                    unityCn.DecryptBlock(dataSpan, remainingData.Length, 0);
-
-                    // 여기서는 복호화된 본문만 출력 (필요에 따라 헤더와 결합 가능)
-                    File.WriteAllBytes(outputFile, dataSpan.ToArray());
-                    Console.WriteLine("Asset file decrypted successfully.");
                 }
             }
             else if (mode.ToLower() == "encrypt")
@@ -102,6 +172,19 @@ namespace AssetEncryptionTool
             else
             {
                 Console.WriteLine("Invalid mode specified. Use 'decrypt' or 'encrypt'.");
+            }
+        }
+
+        private static void ReadHeader(EndianBinaryReader reader, Header m_Header)
+        {
+            m_Header.size = reader.ReadInt64();
+            m_Header.compressedBlocksInfoSize = reader.ReadUInt32();
+            m_Header.uncompressedBlocksInfoSize = reader.ReadUInt32();
+            // m_Header.flags = (ArchiveFlags)reader.ReadUInt32();
+            reader.ReadUInt32();
+            if (m_Header.signature != "UnityFS")
+            {
+                reader.ReadByte();
             }
         }
     }
