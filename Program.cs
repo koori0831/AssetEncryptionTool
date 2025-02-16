@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -110,6 +110,7 @@ namespace AssetEncryptionTool
                             reader.Position = readerPostion;
                             Console.WriteLine("Header Position: " + readerPostion);
                             // ReadUnityCN(reader);
+                            
 
 
                             ChangeFlang(headerData, ArchiveFlags.UnityCNEncryption);
