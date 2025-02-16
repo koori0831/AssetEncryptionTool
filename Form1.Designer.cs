@@ -73,6 +73,7 @@
             // BrowseWorkDirBtn
             // 
             BrowseWorkDirBtn.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            BrowseWorkDirBtn.ForeColor = SystemColors.ControlDarkDark;
             BrowseWorkDirBtn.Location = new Point(415, 41);
             BrowseWorkDirBtn.Margin = new Padding(3, 4, 3, 4);
             BrowseWorkDirBtn.Name = "BrowseWorkDirBtn";
@@ -105,6 +106,7 @@
             // BrowseSaveDir
             // 
             BrowseSaveDir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            BrowseSaveDir.ForeColor = SystemColors.ControlDarkDark;
             BrowseSaveDir.Location = new Point(415, 136);
             BrowseSaveDir.Margin = new Padding(3, 4, 3, 4);
             BrowseSaveDir.Name = "BrowseSaveDir";
@@ -117,6 +119,7 @@
             // DecryptionBtn
             // 
             DecryptionBtn.Font = new Font("Microsoft Sans Serif", 10F);
+            DecryptionBtn.ForeColor = SystemColors.ControlDarkDark;
             DecryptionBtn.Location = new Point(687, 280);
             DecryptionBtn.Margin = new Padding(3, 4, 3, 4);
             DecryptionBtn.Name = "DecryptionBtn";

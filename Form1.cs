@@ -24,17 +24,29 @@ namespace AssetEncryptionTool
         }
         static void DecryptSingle(string inFile, string outFile, string key)
         {
-            using FileStream inStream = new FileStream(inFile, FileMode.Open, FileAccess.Read);
-            BundleFile inBundleFile = new BundleFile(inStream, key: key);
-            inBundleFile.Write(new FileStream(outFile, FileMode.Create, FileAccess.Write), unityCN: false);
+            try
+            {
+                using FileStream inStream = new FileStream(inFile, FileMode.Open, FileAccess.Read);
+                BundleFile inBundleFile = new BundleFile(inStream, key: key);
+                inBundleFile.Write(new FileStream(outFile, FileMode.Create, FileAccess.Write), unityCN: false);
+            }catch(Exception e)
+            {
+                MessageBox.Show($"{e.Message}","error");
+            }
         }
 
         static void EncryptSingle(string inFile, string outFile, string key)
         {
-            using FileStream inStream = new FileStream(inFile, FileMode.Open, FileAccess.Read);
-            BundleFile inBundleFile = new BundleFile(inStream);
-            inBundleFile.Write(new FileStream(outFile, FileMode.Create, FileAccess.Write), infoPacker: "lz4hc",
+            try
+            {
+                using FileStream inStream = new FileStream(inFile, FileMode.Open, FileAccess.Read);
+                BundleFile inBundleFile = new BundleFile(inStream);
+                inBundleFile.Write(new FileStream(outFile, FileMode.Create, FileAccess.Write), infoPacker: "lz4hc",
                 dataPacker: "lz4hc", unityCN: true, key: key);
+            }catch(Exception e)
+            {
+                MessageBox.Show($"{e.Message}", "error");
+            }
         }
         void test(string inputPath, string outputPath, string key, EncryptDelegate @delegate)
         {
@@ -48,6 +60,8 @@ namespace AssetEncryptionTool
                 MessageBox.Show("OutputPath is empty!");
                 return;
             }
+            if (!Directory.Exists(outputPath))
+                Directory.CreateDirectory(outputPath);
 
             string[] childFiles = GetChildPath(inputPath);
             foreach(string childPath in childFiles)
